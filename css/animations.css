@@ -1,0 +1,24 @@
+/* Escudo Flotante */
+@keyframes floatShield {
+    0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 10px 10px rgba(0,0,0,0.2)); }
+    50% { transform: translateY(-15px) scale(1.02); filter: drop-shadow(0 20px 20px rgba(0,0,0,0.15)); }
+}
+
+/* Fondo vivo (Aurora Verde) */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Entrada de tarjetas */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Modal Slide */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}

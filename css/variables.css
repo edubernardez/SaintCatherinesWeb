@@ -1,0 +1,20 @@
+:root {
+    /* Identidad SCS */
+    --primary: #004d2c;      /* Verde oscuro del escudo */
+    --primary-light: #007041; /* Un verde un poco más vivo para degradados */
+    --accent: #f59e0b;       /* Dorado/Naranja del escudo */
+    
+    /* UI Colors */
+    --bg-body: #f8fafc;
+    --bg-card: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    
+    /* Efectos */
+    --glass: rgba(255, 255, 255, 0.85);
+    --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.05);
+    --shadow-md: 0 10px 30px -5px rgba(0, 77, 44, 0.15); /* Sombra verdosa sutil */
+    
+    --radius: 16px;
+    --header-height: 70px;
+}

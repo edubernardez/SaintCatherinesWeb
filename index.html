@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Saint Catherine's Store</title>
+    
+    <meta property="og:title" content="Saint Catherine's Store">
+    <meta property="og:description" content="Catálogo oficial de uniformes escolares. Hacé tu pedido online.">
+    <meta property="og:image" content="img/logo.png"> 
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="apple-touch-icon" href="img/logo.png">    
+    <meta name="theme-color" content="#004d2c">
+
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <div id="wizardContainer" class="wizard-overlay">
+        
+        <div id="step1" class="wizard-step active">
+            
+            <div class="wizard-header">
+                
+                <div class="header-top-row">
+                    
+                    <div class="brand-group">
+                        <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
+                        <span class="brand-text-header">Saint Catherine's<br>School</span>
+                    </div>
+
+                    <div class="lang-selector-container">
+                        <button onclick="app.setLang('es', this)" class="lang-flag-btn active" title="Español">
+                            <img src="https://flagcdn.com/w80/es.png" alt="ES">
+                        </button>
+                        <button onclick="app.setLang('pt', this)" class="lang-flag-btn" title="Português">
+                            <img src="https://flagcdn.com/w80/br.png" alt="BR">
+                        </button>
+                        <button onclick="app.setLang('en', this)" class="lang-flag-btn" title="English">
+                            <img src="https://flagcdn.com/w80/us.png" alt="US">
+                        </button>
+                    </div>
+                </div>
+
+                <h2 id="txtWelcome">Bienvenidos</h2>
+                <p id="txtSelectLevel" style="display:none;">Seleccione nivel</p> 
+            </div>
+            
+            <div class="level-grid">
+                <div class="level-row top">
+                    <div class="option-card" onclick="app.setNivel('inicial')">
+                        <img src="img/nivel_inicial.jpg" alt="Inicial">
+                        <div class="card-label" id="lblInicial">Inicial</div>
+                    </div>
+                    <div class="option-card" onclick="app.setNivel('primaria')">
+                        <img src="img/primaria_juntos.jpg" alt="Primaria">
+                        <div class="card-label" id="lblPrimaria">Primaria</div>
+                    </div>
+                </div>
+
+                <div class="level-row bottom">
+                    <div class="option-card wide" onclick="app.setNivel('secundaria')">
+                        <img src="img/secundaria_juntos.jpg" alt="Secundaria">
+                        <div class="card-label" id="lblSecundaria">Secundaria</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step2" class="wizard-step">
+            <div class="wizard-header">
+                <img src="img/logo_white.png" class="wizard-logo-small" alt="SCS">
+                <h2 id="txtWho">¿Para quién es?</h2>
+                <button class="btn-back-floating" onclick="app.backStep()">
+                    <i class="ri-arrow-left-line"></i> <span id="btnBack">Volver</span>
+                </button>
+            </div>
+
+            <div class="gender-grid">
+                <div class="option-card portrait" onclick="app.setGenero('varon')">
+                    <img id="imgGeneroVaron" src="" alt="Niño">
+                    <div class="card-label" id="lblBoy">Varón</div>
+                </div>
+                <div class="option-card portrait" onclick="app.setGenero('mujer')">
+                    <img id="imgGeneroMujer" src="" alt="Niña">
+                    <div class="card-label" id="lblGirl">Mujer</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainStore" class="store-container hidden">
+        <nav class="glass-nav">
+            <div class="brand">
+                <button onclick="location.reload()" class="btn-nav-back"><i class="ri-arrow-left-line"></i></button>
+                <span class="brand-name">Saint Catherine's</span>
+            </div>
+            <button class="cart-trigger" onclick="cart.toggleModal()">
+                <div class="icon-wrap">
+                    <i class="ri-shopping-bag-3-line"></i>
+                    <span id="cartBadge" class="badge">0</span>
+                </div>
+            </button>
+        </nav>
+
+        <header class="hero-section">
+            <div class="hero-bg-anim"></div>
+            <div class="hero-content">
+                <div class="shield-wrapper">
+                    <img src="img/logo.png" alt="Escudo" class="hero-shield">
+                </div>
+                <h1 id="heroTitle">Catálogo</h1>
+                <p id="heroSubtitle">Selección exclusiva</p>
+            </div>
+        </header>
+
+        <main class="container">
+            <div id="gridProductos" class="products-grid"></div>
+        </main>
+    </div>
+
+    <a href="#" target="_blank" class="wsp-help-btn" id="btnWspFloating">
+        <i class="ri-whatsapp-line"></i>
+        <span class="wsp-text" id="txtWspHelp">¿Tenés alguna duda?<br>¡Escribinos! 👋</span>
+    </a>
+
+    <div id="modalCart" class="modal-backdrop">
+        <div class="modal-panel">
+            <div class="modal-header">
+                <h3 id="txtOrder">Tu Pedido</h3>
+                <button class="close-btn" onclick="cart.toggleModal()"><i class="ri-close-line"></i></button>
+            </div>
+            <div id="cartItemsContainer" class="modal-body"></div>
+            <div class="modal-footer">
+                <div class="total-row"><span id="txtTotal">Total:</span><strong id="cartTotal">$0</strong></div>
+                <button onclick="cart.checkout()" class="btn-whatsapp">
+                    <span id="btnFinish">Finalizar en WhatsApp</span>
+                    <i class="ri-whatsapp-line"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
