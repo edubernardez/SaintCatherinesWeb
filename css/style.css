@@ -26,9 +26,8 @@ body { background: var(--bg-body); }
    ======================== */
 .wizard-header {
     background: linear-gradient(170deg, #004d2c 0%, #002a18 100%);
-    /* Padding mínimo: Arriba/Abajo 15px, Lados 20px */
     padding: 15px 20px 20px; 
-    border-radius: 0 0 25px 25px; /* Curva más sutil */
+    border-radius: 0 0 25px 25px;
     margin-bottom: 20px;
     box-shadow: 0 8px 20px rgba(0, 77, 44, 0.25);
     position: relative;
@@ -39,21 +38,24 @@ body { background: var(--bg-body); }
 /* --- 1. FILA SUPERIOR: LOGO (Izq) - BANDERAS (Der) --- */
 .header-top-row {
     display: flex;
-    justify-content: space-between; /* Separa los elementos al máximo */
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px; /* Separación con el título "Bienvenidos" */
+    margin-bottom: 15px; 
     width: 100%;
+    padding: 0 5px;
 }
 
 /* Grupo de Marca (Logo + Texto) */
 .brand-group {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    flex: 1;
 }
 
 .brand-logo-mini {
-    width: 42px; height: 42px; /* Más chico (antes 55/65px) */
+    width: 48px;
+    height: auto; /* Evita deformaciones */
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
 }
@@ -61,27 +63,28 @@ body { background: var(--bg-body); }
 .brand-text-header {
     font-family: 'Outfit', sans-serif;
     font-weight: 700; 
-    font-size: 0.9rem; /* Texto más compacto */
+    font-size: 0.85rem; 
     color: white;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    line-height: 1.1;
+    letter-spacing: 0.8px;
+    line-height: 1.2;
     text-align: left;
 }
 
-/* Grupo de Banderas (Alineado a la derecha) */
+/* Grupo de Banderas */
 .lang-selector-container {
     display: flex; 
-    gap: 8px; /* Banderas más juntas */
+    gap: 10px;
     margin: 0;
 }
 
 .lang-flag-btn {
-    width: 32px; height: 32px; /* Banderas tamaño "botón" */
+    width: 34px;
+    height: 34px;
     border-radius: 50%; 
-    border: 2px solid rgba(255,255,255,0.1);
+    border: 2px solid rgba(255,255,255,0.2);
     padding: 0;
-    overflow: hidden; /* Para recortar la imagen redonda */
+    overflow: hidden;
     cursor: pointer;
     transition: transform 0.2s;
     background: transparent;
@@ -89,35 +92,31 @@ body { background: var(--bg-body); }
 
 .lang-flag-btn img {
     width: 100%; height: 100%; object-fit: cover;
-    opacity: 0.7; /* Apagadas por defecto */
+    opacity: 0.7;
+    border-radius: 50%;
 }
 
 .lang-flag-btn.active {
-    border-color: var(--accent); /* Borde dorado al activo */
+    border-color: var(--accent);
     transform: scale(1.15);
     box-shadow: 0 0 8px rgba(255,255,255,0.2);
 }
-.lang-flag-btn.active img { opacity: 1; } /* Bandera activa brilla */
-
+.lang-flag-btn.active img, 
+.lang-flag-btn:hover img { 
+    opacity: 1;
+}
 
 /* --- 2. TÍTULO (Debajo) --- */
 .wizard-header h2 {
     font-family: 'Playfair Display', serif; 
-    font-size: 1.6rem; /* Título más discreto */
+    font-size: 1.6rem;
     color: white; 
-    margin: 0; /* Sin margen extra */
+    margin: 0;
     letter-spacing: 0.5px;
-    text-align: center; /* El título sí va centrado */
+    text-align: center;
 }
 
-/* (Opcional) Texto pequeño debajo de bienvenidos */
-.wizard-header p {
-    font-size: 0.75rem;
-    color: rgba(255,255,255,0.7);
-    margin-top: 2px;
-}
-
-/* 3. ETIQUETA "SELECCIONE IDIOMA" */
+/* ETIQUETA "SELECCIONE IDIOMA" (Si se usa en JS) */
 .lang-label {
     color: rgba(255, 255, 255, 0.6); 
     font-size: 0.7rem; 
@@ -126,40 +125,7 @@ body { background: var(--bg-body); }
     letter-spacing: 1.5px;
     margin-bottom: 8px; 
     display: block;
-}
-
-/* 4. BOTONES DE IDIOMA (BANDERAS CIRCULARES) */
-.lang-selector-container {
-    display: flex; justify-content: center; gap: 12px; margin: 0;
-}
-
-.lang-flag-btn {
-    width: 38px; height: 38px; /* Compactos */
-    border-radius: 50%; 
-    border: none;
-    
-    /* Estilo sutil */
-    background: rgba(0,0,0,0.3);
-    border: 1px solid rgba(255,255,255,0.1);
-    
-    font-size: 20px; /* Tamaño emoji */
-    cursor: pointer; 
-    transition: all 0.2s ease;
-    display: flex; align-items: center; justify-content: center;
-    padding: 0;
-}
-
-.lang-flag-btn:hover {
-    transform: scale(1.1); 
-    background: rgba(255,255,255,0.1);
-    border-color: white;
-}
-
-.lang-flag-btn.active {
-    background: white; 
-    border: 2px solid var(--accent); /* Borde dorado */
-    transform: scale(1.15);
-    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+    text-align: center;
 }
 
 /* --- BOTÓN VOLVER (Header Paso 2) --- */
@@ -174,21 +140,19 @@ body { background: var(--bg-body); }
 }
 .wizard-logo-small { width: 50px; margin-bottom: 5px; }
 
-
 /* --- GRID NIVEL --- */
 .level-grid { width: 100%; padding: 0 15px; display: flex; flex-direction: column; gap: 10px; }
-
 .level-row { display: flex; gap: 10px; justify-content: center; }
 
 /* Fila Superior */
 .level-row.top { height: auto; aspect-ratio: 2/1.2; } 
 .level-row.top .option-card { flex: 1; }
 
-/* Fila Inferior (Secundaria Panorámica) */
-.level-row.bottom { display: flex; justify-content: center; } 
+/* Fila Inferior (Secundaria - MÁS ALTA PARA VER UNIFORMES) */
+.level-row.bottom { display: flex; justify-content: center; }
 .level-row.bottom .option-card { 
     width: 100%; max-width: 100%; 
-    aspect-ratio: 2.8/1; /* Más ancha y baja */
+    aspect-ratio: 1.2/1; /* Proporción para mostrar cuerpo completo */
 }
 
 /* --- GRID GENERO --- */
@@ -212,7 +176,7 @@ body { background: var(--bg-body); }
 }
 .card-label {
     position: absolute; bottom: 0; left: 0; width: 100%;
-    background: rgba(0, 77, 44, 0.95); /* Verde semi-transparente */
+    background: rgba(0, 77, 44, 0.95); 
     color: white; 
     font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem;
     text-transform: uppercase; letter-spacing: 1px;
@@ -245,7 +209,6 @@ body { background: var(--bg-body); }
 .wsp-help-btn i { font-size: 1.6rem; }
 .wsp-help-btn:hover { transform: scale(1.1); }
 
-/* LA BURBUJA DE TEXTO (TOOLTIP) */
 .wsp-text { 
     position: absolute;
     bottom: 65px; 
@@ -266,7 +229,6 @@ body { background: var(--bg-body); }
     pointer-events: none;
 }
 
-/* EL TRIÁNGULO (FLECHITA) */
 .wsp-text::after {
     content: ''; position: absolute; bottom: -6px; left: 18px;    
     width: 0; height: 0; 
@@ -365,21 +327,4 @@ body { background: var(--bg-body); }
 @media (max-width: 500px) {
     .level-row.bottom .option-card { width: 100%; } 
     .brand-text-header { font-size: 1rem; }
-}
-
-/* --- 3. BOTONES DE IDIOMA --- */
-/* ESTILO PARA LAS IMÁGENES DE BANDERAS */
-.lang-flag-btn img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Cubre todo el botón */
-    border-radius: 50%; /* Lo hace redondo */
-    opacity: 0.8; /* Un poco apagado cuando no está activo */
-    transition: 0.2s;
-}
-
-/* Cuando el botón está activo, la bandera brilla al 100% */
-.lang-flag-btn.active img, 
-.lang-flag-btn:hover img {
-    opacity: 1;
 }
