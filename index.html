@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Saint Catherine's Store</title>
     
-    <meta property="og:title" content="Saint Catherine's Store">
-    <meta property="og:description" content="Catálogo oficial de uniformes escolares. Hacé tu pedido online.">
-    <meta property="og:image" content="img/logo.png"> 
-    <meta property="og:type" content="website">
-    
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="apple-touch-icon" href="img/logo.png">    
     <meta name="theme-color" content="#004d2c">
@@ -27,16 +22,12 @@
     <div id="wizardContainer" class="wizard-overlay">
         
         <div id="step1" class="wizard-step active">
-            
             <div class="wizard-header">
-                
                 <div class="header-top-row">
-    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
-    
-    <span class="brand-text-header-centered">Saint Catherine's<br>School</span>
-    
-    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
-</div>
+                    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
+                    <span class="brand-text-header-centered">Saint Catherine's<br>School</span>
+                    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
+                </div>
 
                 <h2 id="txtWelcome">Bienvenidos</h2>
 
@@ -51,8 +42,6 @@
                         <img src="https://flagcdn.com/w80/gb.png" alt="UK">
                     </button>
                 </div>
-
-                <p id="txtSelectLevel" style="display:none;">Seleccione nivel</p> 
             </div>
             
             <div class="level-grid">
@@ -66,7 +55,6 @@
                         <div class="card-label" id="lblPrimaria">Primaria</div>
                     </div>
                 </div>
-
                 <div class="level-row bottom">
                     <div class="option-card wide" onclick="app.setNivel('secundaria')">
                         <img src="img/secundaria_juntos.jpg" alt="Secundaria">
@@ -78,11 +66,17 @@
 
         <div id="step2" class="wizard-step">
             <div class="wizard-header">
-                <img src="img/logo_white.png" class="wizard-logo-small" alt="SCS">
-                <h2 id="txtWho">¿Para quién es?</h2>
                 <button class="btn-back-floating" onclick="app.backStep()">
                     <i class="ri-arrow-left-line"></i> <span id="btnBack">Volver</span>
                 </button>
+
+                <div class="header-top-row">
+                    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
+                    <span class="brand-text-header-centered">Saint Catherine's<br>School</span>
+                    <img src="img/logo_white.png" class="brand-logo-mini" alt="SCS">
+                </div>
+
+                <h2 id="txtWho">¿Para quién es?</h2>
             </div>
 
             <div class="gender-grid">
@@ -115,9 +109,7 @@
         <header class="hero-section">
             <div class="hero-bg-anim"></div>
             <div class="hero-content">
-                <div class="shield-wrapper">
-                    <img src="img/logo.png" alt="Escudo" class="hero-shield">
-                </div>
+                <img src="img/logo.png" alt="Escudo" class="hero-shield">
                 <h1 id="heroTitle">Catálogo</h1>
                 <p id="heroSubtitle">Selección exclusiva</p>
             </div>
@@ -126,28 +118,6 @@
         <main class="container">
             <div id="gridProductos" class="products-grid"></div>
         </main>
-    </div>
-
-    <a href="#" target="_blank" class="wsp-help-btn" id="btnWspFloating">
-        <i class="ri-whatsapp-line"></i>
-        <span class="wsp-text" id="txtWspHelp">¿Tenés alguna duda?<br>¡Escribinos! 👋</span>
-    </a>
-
-    <div id="modalCart" class="modal-backdrop">
-        <div class="modal-panel">
-            <div class="modal-header">
-                <h3 id="txtOrder">Tu Pedido</h3>
-                <button class="close-btn" onclick="cart.toggleModal()"><i class="ri-close-line"></i></button>
-            </div>
-            <div id="cartItemsContainer" class="modal-body"></div>
-            <div class="modal-footer">
-                <div class="total-row"><span id="txtTotal">Total:</span><strong id="cartTotal">$0</strong></div>
-                <button onclick="cart.checkout()" class="btn-whatsapp">
-                    <span id="btnFinish">Finalizar en WhatsApp</span>
-                    <i class="ri-whatsapp-line"></i>
-                </button>
-            </div>
-        </div>
     </div>
 
     <script src="js/data.js"></script>

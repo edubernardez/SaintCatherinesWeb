@@ -22,67 +22,75 @@ body { background: var(--bg-body); }
 .wizard-step.active { display: flex; }
 
 /* ========================
-   HEADER ULTRA-COMPACTO (NUEVA VERSIÓN)
+   CABECERA UNIFICADA (LOGO - NOMBRE - LOGO)
    ======================== */
 .wizard-header {
     background: linear-gradient(170deg, #004d2c 0%, #002a18 100%);
-    padding: 12px 15px 15px; /* Altura más corta y elegante */
-    border-radius: 0 0 20px 20px;
-    margin-bottom: 15px;
+    padding: 20px 15px; /* Más espacio para lucir los logos */
+    border-radius: 0 0 25px 25px;
+    margin-bottom: 20px;
     box-shadow: 0 8px 20px rgba(0, 77, 44, 0.25);
-    position: relative;
+    position: relative; /* Para el botón Volver absoluto */
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Alineación perfecta de Logo y Banderas */
+/* Fila superior: Logo Izq - Nombre Centro - Logo Der */
 .header-top-row {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
     width: 100%;
+    margin-bottom: 10px;
     padding: 0 5px;
 }
 
-.brand-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex: 1;
-}
-
 .brand-logo-mini {
-    width: 60px;                /* Ajustado para balancear con el texto */
+    width: 60px; 
     height: 60px;
     object-fit: contain;
-    flex: 0 0 auto;             /* Evita que se deforme */
+    flex: 0 0 auto;
 }
 
+/* Nombre centrado y en blanco puro */
 .brand-text-header-centered {
     font-family: 'Outfit', sans-serif;
     font-weight: 800; 
-    font-size: 1rem;            /* Tamaño legible */
-    color: #ffffff !important;  /* Forza el color blanco */
+    font-size: 1rem; 
+    color: #ffffff !important; 
     text-transform: uppercase;
     line-height: 1.2;
     text-align: center;
-    flex: 1;                    /* Ocupa el centro exacto entre logos */
-    margin: 0 10px;             /* Evita que toque los logos */
+    flex: 1;
+    margin: 0 10px;
     display: block;
 }
 
-/* Contenedor de banderas compacto */
+/* Título Bienvenidos / ¿Para quién es? */
+.wizard-header h2 {
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.8rem; 
+    color: white; 
+    margin: 5px 0 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Banderas centradas y horizontales */
 .lang-selector-container {
     display: flex !important;
-    flex-direction: row !important; /* Fuerza la alineación horizontal */
-    justify-content: center !important; /* Centra las banderas horizontalmente */
+    flex-direction: row !important;
+    justify-content: center !important;
     align-items: center;
-    gap: 15px;               /* Espacio entre cada bandera */
-    margin-top: 15px;        /* Espacio debajo de la palabra Bienvenidos */
-    width: 100%;             /* Ocupa todo el ancho para poder centrar */
+    gap: 15px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .lang-flag-btn {
-    width: 26px;             /* Tamaño pequeño */
+    width: 26px;
     height: 26px;
     border-radius: 50%; 
     border: 1.5px solid rgba(255,255,255,0.3);
@@ -90,7 +98,7 @@ body { background: var(--bg-body); }
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;          /* Evita que se deformen */
+    flex-shrink: 0;
 }
 
 .lang-flag-btn img {
@@ -99,26 +107,28 @@ body { background: var(--bg-body); }
     object-fit: cover;
 }
 
-/* Título Bienvenidos: Centrado y limpio */
-.wizard-header h2 {
-    font-family: 'Playfair Display', serif; 
-    font-size: 1.7rem; 
-    color: white; 
-    margin: 5px 0 0;
-    text-align: center;
-    font-weight: 500;
+/* --- BOTÓN VOLVER (Ahora abajo a la izquierda) --- */
+.btn-back-floating {
+    position: fixed; 
+    bottom: 20px; 
+    left: 20px;
+    background: var(--primary); /* Verde institucional */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 20px; 
+    border-radius: 50px; /* Forma de cápsula moderna */
+    display: flex; 
+    align-items: center; 
+    gap: 8px;
+    color: white !important; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    z-index: 4500; /* Por encima de todo */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
 }
 
-/* --- BOTÓN VOLVER (Header Paso 2) --- */
-.btn-back-floating {
-    position: absolute; top: 15px; left: 15px;
-    background: rgba(0,0,0,0.2); 
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 6px 12px; border-radius: 8px;
-    display: flex; align-items: center; gap: 5px;
-    color: white; font-size: 0.8rem; font-weight: 600; cursor: pointer;
-    backdrop-filter: blur(4px);
-}
 .wizard-logo-small { width: 50px; margin-bottom: 5px; }
 
 /* --- GRID NIVEL --- */
@@ -129,39 +139,64 @@ body { background: var(--bg-body); }
 .level-row.top { height: auto; aspect-ratio: 2/1.2; } 
 .level-row.top .option-card { flex: 1; }
 
-/* Fila Inferior (Secundaria - MÁS ALTA PARA VER UNIFORMES) */
+/* Fila Inferior */
 .level-row.bottom { display: flex; justify-content: center; }
 .level-row.bottom .option-card { 
     width: 100%; max-width: 100%; 
-    aspect-ratio: 1.2/1; /* Proporción para mostrar cuerpo completo */
+    aspect-ratio: 1.2/1; 
 }
 
-/* --- GRID GENERO --- */
+/* --- GRID GENERO (Actualizado: Una arriba de la otra) --- */
 .gender-grid { 
-    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; 
-    width: 100%; max-width: 500px; padding: 0 15px;
+    display: flex; 
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 15px; 
+    width: 100%; 
+    max-width: 500px; 
+    padding: 0 15px;
 }
-.gender-grid .option-card { aspect-ratio: 0.8/1; }
 
-/* TARJETAS DE OPCIÓN */
-.option-card {
-    position: relative; border-radius: 12px; overflow: hidden; cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: 0.2s;
-    background: white; border: 1px solid rgba(0,77,44,0.05);
+.gender-grid .option-card { 
+    width: 100%;
+    aspect-ratio: 2.1/1; /* Proporción para que no se estiren demasiado verticalmente */
 }
+
+/* TARJETAS DE OPCIÓN (Sin cambios, pero ajustado para el nuevo flujo) */
+.option-card {
+    position: relative; 
+    border-radius: 12px; 
+    overflow: hidden; 
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); 
+    transition: 0.2s;
+    background: white; 
+    border: 1px solid rgba(0,77,44,0.05);
+}
+
 .option-card:active { transform: scale(0.97); }
 
 .option-card img {
-    width: 100%; height: 100%; object-fit: cover; 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
     object-position: top center; 
 }
+
 .card-label {
-    position: absolute; bottom: 0; left: 0; width: 100%;
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
     background: rgba(0, 77, 44, 0.95); 
     color: white; 
-    font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.9rem;
-    text-transform: uppercase; letter-spacing: 1px;
-    text-align: center; padding: 8px 5px; z-index: 2;
+    font-family: 'Outfit', sans-serif; 
+    font-weight: 700; 
+    font-size: 0.9rem;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    text-align: center; 
+    padding: 8px 5px; 
+    z-index: 2;
     backdrop-filter: blur(2px);
 }
 
