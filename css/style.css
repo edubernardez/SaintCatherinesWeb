@@ -31,8 +31,12 @@ body { background: var(--bg-body); }
     margin-bottom: 20px;
     box-shadow: 0 8px 20px rgba(0, 77, 44, 0.25);
     position: relative;
-    width: calc(100% + 40px);
-    margin-top: -20px; margin-left: -20px; margin-right: -20px;
+
+    /* FIX: quitar el “estirado” y márgenes negativos que desalinean */
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 /* --- 1. FILA SUPERIOR: LOGO (Izq) - BANDERAS (Der) --- */
@@ -40,6 +44,10 @@ body { background: var(--bg-body); }
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    /* FIX: espacio consistente */
+    gap: 12px;
+
     margin-bottom: 15px; 
     width: 100%;
     padding: 0 5px;
@@ -51,13 +59,19 @@ body { background: var(--bg-body); }
     align-items: center;
     gap: 12px;
     flex: 1;
+
+    /* FIX: permitir recorte del texto sin romper la fila */
+    min-width: 0;
 }
 
 .brand-logo-mini {
     width: 48px;
-    height: auto; /* Evita deformaciones */
+    height: 48px; /* FIX: altura fija para evitar saltos */
     object-fit: contain;
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+
+    /* FIX: que no se achique */
+    flex: 0 0 auto;
 }
 
 .brand-text-header {
@@ -69,6 +83,10 @@ body { background: var(--bg-body); }
     letter-spacing: 0.8px;
     line-height: 1.2;
     text-align: left;
+
+    /* FIX: evita overflow */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Grupo de Banderas */
@@ -76,6 +94,10 @@ body { background: var(--bg-body); }
     display: flex; 
     gap: 10px;
     margin: 0;
+
+    /* FIX: mantener compactas a la derecha */
+    flex: 0 0 auto;
+    align-items: center;
 }
 
 .lang-flag-btn {
@@ -88,10 +110,17 @@ body { background: var(--bg-body); }
     cursor: pointer;
     transition: transform 0.2s;
     background: transparent;
+
+    /* FIX: centrado consistente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lang-flag-btn img {
-    width: 100%; height: 100%; object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     opacity: 0.7;
     border-radius: 50%;
 }
